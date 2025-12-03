@@ -20,8 +20,8 @@ CREATE TABLE t_item (
 
 CREATE TABLE t_item_countries (
     item_id BIGINT NOT NULL,
-    country_id BIGINT NOT NULL,
-    PRIMARY KEY (item_id, country_id),
+    countries_id BIGINT NOT NULL,
+    PRIMARY KEY (item_id, countries_id),
     FOREIGN KEY (item_id) REFERENCES t_item(id),
-    FOREIGN KEY (country_id) REFERENCES t_country(id)
+    FOREIGN KEY (countries_id) REFERENCES t_country(id)
 );

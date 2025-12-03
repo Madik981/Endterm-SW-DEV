@@ -9,8 +9,8 @@ INSERT INTO t_item (name, description, price, category_id) VALUES ('iPhone 15 Pr
 INSERT INTO t_item (name, description, price, category_id) VALUES ('Galaxy S25 Ultra', 'High-end Android Smartphone', 500000, 1);
 INSERT INTO t_item (name, description, price, category_id) VALUES ('HyperX Cloud II', 'Popular Gaming Headphones', 30000, 2);
 
-INSERT INTO t_item_countries(item_id, country_id) VALUES (1, 1);
-INSERT INTO t_item_countries(item_id, country_id) VALUES (1, 3);
-INSERT INTO t_item_countries(item_id, country_id) VALUES (2, 2);
-INSERT INTO t_item_countries(item_id, country_id) VALUES (2, 1);
-INSERT INTO t_item_countries(item_id, country_id) VALUES (3, 1);
+INSERT INTO t_item_countries(item_id, countries_id) VALUES (1, 1);
+INSERT INTO t_item_countries(item_id, countries_id) VALUES (1, 3);
+INSERT INTO t_item_countries(item_id, countries_id) VALUES (2, 2);
+INSERT INTO t_item_countries(item_id, countries_id) VALUES (2, 1);
+INSERT INTO t_item_countries(item_id, countries_id) VALUES (3, 1);

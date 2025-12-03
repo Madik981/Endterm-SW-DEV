@@ -1,6 +1,6 @@
 services:
   spring-project:
-    image: "madik981/"
+    image: "madik981/simple-spring-boot-project-repo"
     container_name: spring-project
     depends_on:
       - database-service

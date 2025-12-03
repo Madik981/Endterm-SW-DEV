@@ -1,0 +1,24 @@
+services:
+  spring-project:
+    image: "madik981/"
+    container_name: spring-project
+    depends_on:
+      - database-service
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
+    ports:
+      - "8888:8080"
+
+  database-service:
+    image: postgres
+    container_name: database-service
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "2345:5432"

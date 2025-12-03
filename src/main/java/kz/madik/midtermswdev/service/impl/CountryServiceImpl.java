@@ -24,19 +24,19 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public CountryDto getById(Long id) {
-        return countryMapper.toDto(countryRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Not found")));
+        return countryMapper.toDto(countryRepository.findById(id).orElse(null));
     }
 
     @Override
-    public void addCountry(CountryDto countryDto) {
-        countryRepository.save(countryMapper.toEntity(countryDto));
+    public CountryDto addCountry(CountryDto countryDto) {
+        return countryMapper.toDto(countryRepository.save(countryMapper.toEntity(countryDto)));
     }
 
     @Override
     public CountryDto updateById(Long id, CountryDto countryDto) {
         Country country = countryMapper.toEntity(countryDto);
 
-        Country updateCountry = countryRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Not found"));
+        Country updateCountry = countryRepository.findById(id).orElse(null);
 
         updateCountry.setCode(country.getCode());
         updateCountry.setCountry(country.getCountry());
@@ -45,7 +45,11 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         countryRepository.deleteById(id);
+
+        Country country = countryRepository.findById(id).orElse(null);
+
+        return country == null;
     }
 }

@@ -24,19 +24,19 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDto getById(Long id) {
-        return categoryMapper.toDto(categoryRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Not found")));
+        return categoryMapper.toDto(categoryRepository.findById(id).orElse(null));
     }
 
     @Override
-    public void addCategory(CategoryDto countryDto) {
-        categoryRepository.save(categoryMapper.toEntity(countryDto));
+    public CategoryDto addCategory(CategoryDto countryDto) {
+        return categoryMapper.toDto(categoryRepository.save(categoryMapper.toEntity(countryDto)));
     }
 
     @Override
     public CategoryDto updateById(Long id, CategoryDto countryDto) {
         Category category = categoryMapper.toEntity(countryDto);
 
-        Category updateCategory = categoryRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Not found"));
+        Category updateCategory = categoryRepository.findById(id).orElse(null);
 
         updateCategory.setCategory(category.getCategory());
 
@@ -44,7 +44,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public boolean deleteById(Long id) {
         categoryRepository.deleteById(id);
+
+        Category category = categoryRepository.findById(id).orElse(null);
+
+        return category == null;
     }
 }

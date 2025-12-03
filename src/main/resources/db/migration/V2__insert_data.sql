@@ -1,0 +1,16 @@
+INSERT INTO t_category (category) VALUES ('Smartphones');
+INSERT INTO t_category (category) VALUES ('Headphones');
+
+INSERT INTO t_country (code, country) VALUES ('US', 'United States');
+INSERT INTO t_country (code, country) VALUES ('KR', 'South Korea');
+INSERT INTO t_country (code, country) VALUES ('KZ', 'Kazakhstan');
+
+INSERT INTO t_item (name, description, price, category_id) VALUES ('iPhone 15 Pro', 'Flagship iOS Smartphone', 600000, 1);
+INSERT INTO t_item (name, description, price, category_id) VALUES ('Galaxy S25 Ultra', 'High-end Android Smartphone', 500000, 1);
+INSERT INTO t_item (name, description, price, category_id) VALUES ('HyperX Cloud II', 'Popular Gaming Headphones', 30000, 2);
+
+INSERT INTO t_item_countries(item_id, country_id) VALUES (1, 1);
+INSERT INTO t_item_countries(item_id, country_id) VALUES (1, 3);
+INSERT INTO t_item_countries(item_id, country_id) VALUES (2, 2);
+INSERT INTO t_item_countries(item_id, country_id) VALUES (2, 1);
+INSERT INTO t_item_countries(item_id, country_id) VALUES (3, 1);

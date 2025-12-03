@@ -32,10 +32,9 @@ public class MyUserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserModel user = userRepository.findByEmail(username);
 
-        if(Objects.nonNull(user)) {     // if user != null
+        if(Objects.nonNull(user)) {
             return user;
         }
-
         throw new UsernameNotFoundException("User Not Found");
     }
 
